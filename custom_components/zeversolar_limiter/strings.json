@@ -1,0 +1,83 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Zeversolar inverter",
+        "description": "Local web interface of the inverter's Wi-Fi module, and the energy price that decides when to curtail.",
+        "data": {
+          "host": "Host",
+          "price_entity": "Price sensor"
+        },
+        "data_description": {
+          "host": "IP address or host name of the inverter, as in http://<host>/home.cgi.",
+          "price_entity": "Sensor with the current energy price. In Auto the inverter is curtailed while this is below the price threshold."
+        }
+      },
+      "reconfigure": {
+        "title": "Zeversolar inverter",
+        "data": {
+          "host": "Host"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No Zeversolar inverter answers at this host."
+    },
+    "abort": {
+      "already_configured": "This inverter is already configured.",
+      "reconfigure_successful": "The host was updated.",
+      "unique_id_mismatch": "A different inverter answers at this host."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "price_entity": "Price sensor"
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "curtailing": {
+        "name": "Curtailing",
+        "state_attributes": {
+          "reason": {
+            "name": "Reason",
+            "state": {
+              "price": "Price below threshold",
+              "forced": "Forced"
+            }
+          }
+        }
+      }
+    },
+    "number": {
+      "price_threshold": {
+        "name": "Price threshold"
+      }
+    },
+    "select": {
+      "curtailment": {
+        "name": "Curtailment",
+        "state": {
+          "auto": "Auto (price)",
+          "off": "Off",
+          "forced": "Forced"
+        }
+      }
+    },
+    "sensor": {
+      "power": {
+        "name": "Power"
+      },
+      "energy_today": {
+        "name": "Energy today"
+      },
+      "output_limit": {
+        "name": "Output limit"
+      }
+    }
+  }
+}

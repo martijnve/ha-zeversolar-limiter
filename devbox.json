@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.2/.schema/devbox.schema.json",
+  "packages": [
+    "uv@latest",
+    "python@3.14"
+  ],
+  "shell": {
+    "init_hook": [
+      "uv sync --quiet"
+    ],
+    "scripts": {
+      "test": [
+        "uv run pytest"
+      ],
+      "lint": [
+        "uv run ruff check .",
+        "uv run ruff format --check ."
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+[project]
+name = "ha-zeversolar-limiter"
+version = "0.1.0"
+description = "Home Assistant integration: a local Zeversolar inverter that curtails itself when the energy price is negative"
+requires-python = ">=3.14"
+license = "MIT"
+
+[dependency-groups]
+dev = [
+    "pytest-homeassistant-custom-component",
+    "ruff",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+# E501: left to the formatter. RUF012: HA entities use mutable _attr_* class defaults.
+ignore = ["E501", "RUF012"]

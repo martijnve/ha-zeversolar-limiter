@@ -1,0 +1,14 @@
+{
+  "domain": "zeversolar_limiter",
+  "name": "Zeversolar Limiter",
+  "codeowners": [
+    "@martijnve"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/martijnve/ha-zeversolar-limiter",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/martijnve/ha-zeversolar-limiter/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
